@@ -142,16 +142,16 @@ export const ComponentPalette = () => {
                 {category.components.map((component, componentIndex) => (
                   <Card 
                     key={componentIndex}
-                    className="p-3 cursor-move hover:bg-accent/50 transition-colors border-border/30 hover:border-primary/30"
+                    className="p-3 cursor-move hover:bg-accent/50 transition-professional border-border hover:border-primary/30 hover:shadow-professional"
                     draggable
                     onDragStart={(e) => handleDragStart(e, component.name)}
                   >
                     <div className="flex flex-col items-center gap-2 text-center">
-                      <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center">
-                        <component.icon className="w-4 h-4 text-muted-foreground" />
+                      <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                        <component.icon className="w-4 h-4 text-primary-foreground" />
                       </div>
                       <div>
-                        <div className="text-xs font-medium">{component.name}</div>
+                        <div className="text-xs font-medium text-foreground">{component.name}</div>
                         <div className="text-xs text-muted-foreground">{component.description}</div>
                       </div>
                     </div>
@@ -168,14 +168,14 @@ export const ComponentPalette = () => {
           {/* Custom Component Creator */}
           <Card className="p-4 border-dashed border-primary/30 bg-primary/5">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Plus className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-3 shadow-professional">
+                <Plus className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h4 className="font-medium mb-2">Create Custom Component</h4>
+              <h4 className="font-medium mb-2 text-foreground">Create Custom Component</h4>
               <p className="text-xs text-muted-foreground mb-3">
                 Let AI generate a custom component based on your description
               </p>
-              <Button variant="outline" size="sm" className="w-full">
+              <Button variant="outline" size="sm" className="w-full border-primary/30 text-primary hover:bg-primary/10">
                 Generate with AI
               </Button>
             </div>

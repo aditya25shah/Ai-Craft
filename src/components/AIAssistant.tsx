@@ -105,18 +105,18 @@ export const AIAssistant = () => {
     <div className="flex flex-col h-full">
       {/* AI Status Header */}
       <div className="p-4 border-b border-border/50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center animate-pulse-glow">
-            <Sparkles className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <div className="font-medium">AI Assistant</div>
-            <div className="text-xs text-muted-foreground flex items-center gap-1">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-              Online & Ready
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center shadow-professional">
+              <Sparkles className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <div>
+              <div className="font-medium text-foreground">AI Assistant</div>
+              <div className="text-xs text-muted-foreground flex items-center gap-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                Online & Ready
+              </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* Quick Actions */}
@@ -129,10 +129,10 @@ export const AIAssistant = () => {
               variant="ghost"
               size="sm"
               onClick={() => handleQuickAction(action.prompt)}
-              className="h-auto p-3 flex flex-col items-center gap-2 hover:bg-accent/50"
+              className="h-auto p-3 flex flex-col items-center gap-2 hover:bg-accent/50 transition-professional border border-transparent hover:border-primary/20"
             >
               <action.icon className={`w-4 h-4 ${action.color}`} />
-              <span className="text-xs text-center leading-tight">{action.label}</span>
+              <span className="text-xs text-center leading-tight text-foreground">{action.label}</span>
             </Button>
           ))}
         </div>
@@ -147,15 +147,15 @@ export const AIAssistant = () => {
                 {msg.type === 'ai' && (
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-6 h-6 bg-gradient-primary rounded-full flex items-center justify-center">
-                      <Sparkles className="w-3 h-3 text-white" />
+                      <Sparkles className="w-3 h-3 text-primary-foreground" />
                     </div>
-                    <Badge variant="secondary" className="text-xs">AI</Badge>
+                    <Badge variant="secondary" className="text-xs bg-primary/10 text-primary border-primary/20">AI</Badge>
                   </div>
                 )}
-                <Card className={`p-3 ${
+                <Card className={`p-3 shadow-professional border ${
                   msg.type === 'user' 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-muted/50'
+                    ? 'bg-gradient-primary text-primary-foreground border-primary/20' 
+                    : 'bg-card border-border'
                 }`}>
                   <p className="text-sm leading-relaxed">{msg.content}</p>
                 </Card>
@@ -187,7 +187,7 @@ export const AIAssistant = () => {
             onClick={handleSendMessage}
             disabled={!message.trim()}
             size="sm"
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 self-end"
+            className="bg-gradient-primary hover:bg-primary-hover transition-professional self-end shadow-professional"
           >
             <Send className="w-4 h-4" />
           </Button>

@@ -20,7 +20,8 @@ import {
   Code,
   Smartphone,
   Monitor,
-  Tablet
+  Tablet,
+  Building2
 } from "lucide-react";
 import { useState } from "react";
 import { ComponentPalette } from "./ComponentPalette";
@@ -28,10 +29,18 @@ import { AIAssistant } from "./AIAssistant";
 import { CanvasArea } from "./CanvasArea";
 
 interface EditorInterfaceProps {
+  user: {
+    id: string;
+    name: string;
+    email: string;
+    company: string;
+    role: string;
+    createdAt: Date;
+  };
   onBack: () => void;
 }
 
-export const EditorInterface = ({ onBack }: EditorInterfaceProps) => {
+export const EditorInterface = ({ user, onBack }: EditorInterfaceProps) => {
   const [activePanel, setActivePanel] = useState<'components' | 'properties' | 'ai'>('components');
   const [previewMode, setPreviewMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
   const [isPreview, setIsPreview] = useState(false);
@@ -45,19 +54,21 @@ export const EditorInterface = ({ onBack }: EditorInterfaceProps) => {
   return (
     <div className="h-screen bg-background flex flex-col">
       {/* Top Toolbar */}
-      <header className="h-16 border-b border-border/50 bg-toolbar-bg flex items-center justify-between px-6">
+      <header className="h-16 border-b border-border bg-toolbar-bg flex items-center justify-between px-6">
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" onClick={onBack}>
+          <Button variant="ghost" size="sm" onClick={onBack} className="text-muted-foreground hover:text-foreground">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
           <Separator orientation="vertical" className="h-6" />
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-white" />
+              <Building2 className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-semibold">My Awesome App</span>
-            <Badge variant="outline" className="ml-2">Draft</Badge>
+            <div>
+              <span className="font-semibold text-foreground">{user.name}'s Project</span>
+              <Badge variant="outline" className="ml-2 text-xs">Draft</Badge>
+            </div>
           </div>
         </div>
 
@@ -96,7 +107,7 @@ export const EditorInterface = ({ onBack }: EditorInterfaceProps) => {
               <Save className="w-4 h-4 mr-2" />
               Save
             </Button>
-            <Button size="sm" className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
+            <Button size="sm" className="bg-gradient-primary hover:bg-primary-hover transition-professional shadow-professional">
               <Play className="w-4 h-4 mr-2" />
               Deploy
             </Button>

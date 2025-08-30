@@ -2,63 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AI-Craft Builder Design System - Modern SaaS Platform */
+/* AI-Craft Builder Design System - Professional Light Theme */
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Professional Light Theme Colors */
+    --background: 0 0% 100%;
+    --foreground: 222 15% 15%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 15% 15%;
 
-    --popover: 240 5% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 15% 15%;
 
-    /* AI Purple Theme */
-    --primary: 263 70% 50%;
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 263 70% 65%;
+    /* Professional Blue Primary */
+    --primary: 214 95% 93%;
+    --primary-foreground: 214 100% 15%;
+    --primary-hover: 214 95% 90%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 240 5% 6%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 197 71% 52%;
-    --accent-foreground: 0 0% 98%;
-    --accent-glow: 197 71% 65%;
+    --accent: 210 40% 94%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 10%;
-    --input: 240 5.9% 10%;
-    --ring: 263 70% 50%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 95% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* AI-Craft Specific Design Tokens */
-    --canvas-bg: 240 8% 8%;
-    --canvas-grid: 240 5% 12%;
-    --sidebar-bg: 240 8% 4%;
-    --toolbar-bg: 240 7% 6%;
+    /* Professional Design Tokens */
+    --navbar-bg: 0 0% 100%;
+    --sidebar-bg: 210 40% 98%;
+    --canvas-bg: 210 20% 98%;
+    --toolbar-bg: 0 0% 100%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(197 71% 52%));
-    --gradient-glow: linear-gradient(135deg, hsl(263 70% 65% / 0.3), hsl(197 71% 65% / 0.3));
-    --gradient-card: linear-gradient(145deg, hsl(240 10% 5%), hsl(240 8% 8%));
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 95% 93%), hsl(214 95% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(210 40% 96%), hsl(210 40% 94%));
     
-    /* Shadows & Effects */
-    --shadow-glow: 0 0 30px hsl(263 70% 50% / 0.3);
-    --shadow-card: 0 8px 32px hsl(240 10% 2% / 0.5);
-    --shadow-float: 0 12px 40px hsl(240 10% 2% / 0.6);
+    /* Professional Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Professional Transitions */
+    --transition-smooth: all 0.2s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -77,46 +74,38 @@
   }
 }
 
-/* AI-Craft Custom Styles */
+/* Professional Component Styles */
 @layer components {
   .gradient-primary {
     background: var(--gradient-primary);
   }
   
-  .gradient-glow {
-    background: var(--gradient-glow);
+  .gradient-accent {
+    background: var(--gradient-accent);
   }
   
-  .gradient-card {
-    background: var(--gradient-card);
+  .shadow-professional {
+    box-shadow: var(--shadow-lg);
   }
   
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
-  }
-  
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-  
-  .shadow-float {
-    box-shadow: var(--shadow-float);
-  }
-  
-  .transition-smooth {
+  .transition-professional {
     transition: var(--transition-smooth);
   }
   
-  .transition-bounce {
-    transition: var(--transition-bounce);
+  .border-professional {
+    border: 1px solid hsl(var(--border));
   }
   
-  .canvas-grid {
+  .canvas-pattern {
     background-color: hsl(var(--canvas-bg));
     background-image: 
-      linear-gradient(hsl(var(--canvas-grid)) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--canvas-grid)) 1px, transparent 1px);
+      radial-gradient(circle, hsl(214 32% 91% / 0.3) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+  
+  .navbar-blur {
+    backdrop-filter: blur(8px);
+    background-color: hsl(var(--navbar-bg) / 0.95);
   }
 }
 
@@ -126,7 +115,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
   
   html {
